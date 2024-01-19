@@ -18,14 +18,14 @@ jobs:
 
     - name: npm install, test-coverage
       run: |
-        echo "email=${secrets.REGISTRY_EMAIL}" > ~/.npmrc
+        echo "email=${{secrets.REGISTRY_EMAIL}}" > ~/.npmrc
         echo "always-auth=true" >> ~/.npmrc
-        echo "@<SCOPE>:registry=${secrets.REGISTRY_URL}" >> ~/.npmrc
-        echo "//lpg.jfrog.io/artifactory/api/npm/virt-lpg-npm/:_password=${secrets.REGISTRY_PASSWORD}" >> ~/.npmrc
-        echo "//lpg.jfrog.io/artifactory/api/npm/virt-lpg-npm/:username=${secrets.REGISTRY_EMAIL}" >> ~/.npmrc
-        echo "//registry.npmjs.org/:username=${secrets.REGISTRY_EMAIL}" >> ~/.npmrc
-        echo "//registry.npmjs.org/:_password=${secrets.REGISTRY_PASSWORD}" >> ~/.npmrc
-        echo "registry=${secrets.REGISTRY_URL}" >> ~/.npmrc
+        echo "@<SCOPE>:registry=${{secrets.REGISTRY_URL}}" >> ~/.npmrc
+        echo "//lpg.jfrog.io/artifactory/api/npm/virt-lpg-npm/:_password=${{secrets.REGISTRY_PASSWORD}}" >> ~/.npmrc
+        echo "//lpg.jfrog.io/artifactory/api/npm/virt-lpg-npm/:username=${{secrets.REGISTRY_EMAIL}}" >> ~/.npmrc
+        echo "//registry.npmjs.org/:username=${{secrets.REGISTRY_EMAIL}}" >> ~/.npmrc
+        echo "//registry.npmjs.org/:_password=${{secrets.REGISTRY_PASSWORD}}" >> ~/.npmrc
+        echo "registry=${{secrets.REGISTRY_URL}}" >> ~/.npmrc
         npm install
         npm run test -- --coverage
 
