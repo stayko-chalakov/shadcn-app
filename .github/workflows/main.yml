@@ -18,6 +18,8 @@ jobs:
 
     - name: npm install, test-coverage
       run: |
+        npm whoami
+        npm login
         npm install
         npm run test -- --coverage
 
