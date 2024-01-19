@@ -34,6 +34,17 @@ describe('useCounter Hook', () => {
     expect(result.current.count).toBe(-1);
   });
 
+  it('should reset the count to the initial value', () => {
+    const { result } = renderHook(() => useCounter(5));
+
+    act(() => {
+      result.current.increment();
+      result.current.reset();
+    });
+
+    expect(result.current.count).toBe(5);
+  });
+
   it('should set the count to the specified value', () => {
     const { result } = renderHook(() => useCounter());
 
