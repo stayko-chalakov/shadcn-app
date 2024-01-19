@@ -1,7 +1,7 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': [
       'ts-jest',
@@ -26,4 +26,3 @@ module.exports = {
   ],
   coverageReporters: ['json', 'text', 'lcov'],
 };
-
