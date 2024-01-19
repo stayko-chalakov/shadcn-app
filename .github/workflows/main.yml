@@ -10,11 +10,16 @@ jobs:
     steps:
 
     - uses: actions/checkout@v3
-    - uses: oven-sh/setup-bun@v1
-    - name: npm install, test-coverage
+
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: npm install, make test-coverage
       run: |
-        bun i
-        bun test --coverage
+        npm install
+        npm run test -- --coverage
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
